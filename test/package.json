@@ -2,7 +2,7 @@
     "name": "background_element_test",
     "version": "1.0.0",
     "description": "jQuery plugin",
-    "main": "build\/background_element.js",
+    "main": "build/background_element.js",
     "dependencies": [],
     "devDependencies": {
         "autoprefixer": "^7.2.3",
@@ -29,7 +29,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https:\/\/github.com\/lemehovskiy\/background_element"
+        "url": "https://github.com/lemehovskiy/background_element"
     },
     "author": "lemehovskiy",
     "license": "ISC"

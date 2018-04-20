@@ -17,17 +17,64 @@
             
             //extend by function call
             self.settings = $.extend(true, {
-               
-                test_property: false
+                ratio_x: 16,
+                ratio_y: 9,
+                background_element: 'video'
                 
             }, options);
 
             self.$element = $(element);
 
+            self.$background_element = self.$element.find(self.settings.background_element);
+
             //extend by data options
             self.data_options = self.$element.data('background-element');
             self.settings = $.extend(true, self.settings, self.data_options);
 
+
+            self.$element.css({
+                overflow: 'hidden',
+                position: 'relative'
+            })
+
+            self.$background_element.css({
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)'
+            })
+
+            self.init();
+        }
+
+        init(){
+            let self = this;
+
+            self.resize();
+
+            $(window).on('resize load', function () {
+                self.resize();
+            });
+        }
+
+        resize(){
+            let self = this;
+
+
+            let width = self.$element.outerWidth();
+            let height = self.$element.outerHeight();
+
+            if (width / height > self.settings.ratio_x / self.settings.ratio_y) {
+                self.$background_element.css({
+                    "width": width,
+                    "height": width / self.settings.ratio_x * self.settings.ratio_y
+                });
+            } else {
+                self.$background_element.css({
+                    "width": height / self.settings.ratio_y * self.settings.ratio_x,
+                    "height": height
+                });
+            }
         }
     }
 

@@ -1,23 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>background_element</title>
-
-    <meta name="description" content="jQuery plugin">
-    <meta name="keywords" content="jQuery plugin">
-
-    <link rel="stylesheet" href="build/style.css">
-    <script src="build/app.js"></script>
-
-</head>
-
-<body>
-
-
-<section class="section-intro background-element-demo">
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1374.6 404" style="enable-background:new 0 0 1374.6 404;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;stroke:#27AAE1;stroke-width:0.5;stroke-miterlimit:10;}
@@ -3473,9 +3456,3 @@
 		C844.9,343,846.5,340.5,847.1,338.9z"/>
 </g>
 </svg>
-</section>
-
-
-
-</body>
-</html>
