@@ -7078,7 +7078,8 @@ $(document).ready(function () {
     $('.background-element-demo').backgroundElement({
         ratio_x: 1375,
         ratio_y: 404,
-        background_element: 'svg'
+        background_element: 'svg',
+        relative_body: true
     });
 });
 
@@ -12133,7 +12134,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             self.settings = $.extend(true, {
                 ratio_x: 16,
                 ratio_y: 9,
-                background_element: 'video'
+                background_element: 'video',
+                window_relative: false
 
             }, options);
 
@@ -12146,8 +12148,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             self.settings = $.extend(true, self.settings, self.data_options);
 
             self.$element.css({
-                overflow: 'hidden',
-                position: 'relative'
+                overflow: 'hidden'
             });
 
             self.$background_element.css({
@@ -12167,7 +12168,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 self.resize();
 
-                $(window).on('resize load', function () {
+                $(window).on('resize', function () {
                     self.resize();
                 });
             }
@@ -12176,8 +12177,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function resize() {
                 var self = this;
 
-                var width = self.$element.outerWidth();
-                var height = self.$element.outerHeight();
+                var width = 0;
+                var height = 0;
+
+                if (self.settings.window_relative) {
+                    width = $(window).width();
+                    height = $(window).height();
+                } else {
+                    width = self.$element.outerWidth();
+                    height = self.$element.outerHeight();
+                }
 
                 if (width / height > self.settings.ratio_x / self.settings.ratio_y) {
                     self.$background_element.css({

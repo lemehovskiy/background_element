@@ -19,7 +19,8 @@
             self.settings = $.extend(true, {
                 ratio_x: 16,
                 ratio_y: 9,
-                background_element: 'video'
+                background_element: 'video',
+                window_relative: false
                 
             }, options);
 
@@ -33,8 +34,7 @@
 
 
             self.$element.css({
-                overflow: 'hidden',
-                position: 'relative'
+                overflow: 'hidden'
             })
 
             self.$background_element.css({
@@ -52,7 +52,7 @@
 
             self.resize();
 
-            $(window).on('resize load', function () {
+            $(window).on('resize', function () {
                 self.resize();
             });
         }
@@ -60,9 +60,17 @@
         resize(){
             let self = this;
 
+            let width = 0;
+            let height = 0;
 
-            let width = self.$element.outerWidth();
-            let height = self.$element.outerHeight();
+            if (self.settings.window_relative){
+                width = $(window).width();
+                height = $(window).height();
+            }
+            else {
+                width = self.$element.outerWidth();
+                height = self.$element.outerHeight();
+            }
 
             if (width / height > self.settings.ratio_x / self.settings.ratio_y) {
                 self.$background_element.css({
